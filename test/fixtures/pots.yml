@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: pots
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :string
+#  visible     :boolean          default(TRUE)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  description: MyString
+  visible: false
+
+two:
+  name: MyString
+  description: MyString
+  visible: false

@@ -1,0 +1,22 @@
+<!--div>
+  <h1 class="font-bold text-4xl">Pots#index</h1>
+  <p>Find me in app/views/pots/index.html.erb</p>
+</div-->
+
+<section class="relative">
+  <div class="container px-4 mx-auto">
+    <div class="max-w-3xl mb-20 mx-auto text-center">
+      <h2 class="mt-8 mb-10 text-4xl font-semibold font-heading">Pots más populares </h2>
+    </div>
+    <div class="flex flex-wrap -m-3 mb-16">
+      <!--Por cada post se llamara al parcial pot y se pintaran en la vista-->
+      <%= render partial: 'pot', collection:@pots %>
+    </div>
+    <div class="text-center">
+      <%# if @pots.next_page.present?%>
+        <%#= link_to  "Ver más pots", pots_path(page:@pots.next_page),  class:"mb-4 px-6 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200"%>
+      <%# end %>
+      <a class="mb-4 px-6 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200"></a>
+    </div>
+  </div>
+</section>
