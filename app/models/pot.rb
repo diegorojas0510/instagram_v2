@@ -8,8 +8,14 @@
 #  visible     :boolean          default(TRUE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  slug        :string
 #
 class Pot < ApplicationRecord
+  # Filas palas slug
+  extend FriendlyId
+  friendly_id :name, use: :slugged # generamos el campo slug a partir del nombre
+
+
   # Se crean las validaciones para nuestro modelo y se cambian los mensajes para ver en la base de datos
   # para crear la validación iniciamos con el metodo validate pasamos como simbolo el nombre del atributo el cual queremos validar :name seguido de la validación presence
   validates :name, presence: { message: 'El nombre es requerido'}

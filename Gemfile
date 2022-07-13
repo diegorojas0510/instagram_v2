@@ -30,6 +30,9 @@ gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# gema para reemplazar los id por slug para no exponer infomación sencible
+gem 'friendly_id', '~> 5.4.0'
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
