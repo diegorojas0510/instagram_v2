@@ -3,12 +3,12 @@
   <div class="p-6 border rounded-xl">
     <div class="relative h-52 mb-6">
             <span class="absolute top-0 right-0 mt-4 mr-4 text-xs text-white px-2 py-1 font-semibold bg-gray-600 bg-opacity-100 rounded-md uppercase">
-                <%#= pot.category_default%>
-              Desarollo de software
+                <%#= pot.categories.last %>
+              <%= pot.category_default %>
             </span>
-      <%# if pot.image.present?%>
-        <%#= image_tag pot.image, class:"w-full h-full object-cover rounded-lg"%>
-      <%# end %>
+      <% if pot.image.present?%>
+        <%= image_tag pot.image, class:"w-full h-full object-cover rounded-lg"%>
+      <% end %>
     </div>
     <!--usamos el helper de date-->
     <span class="inline-block mb-4 text-xs text-gray-500"><%= date_format pot.created_at %></span>

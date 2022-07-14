@@ -4,7 +4,8 @@ class PotsController < ApplicationController
 
   def index
     # listar mis pots mas recientes en la vista index
-    @pots = Pot.where(visible:true).order('id DESC')
+    current_page = params[:page] ||= 1
+    @pots = Pot.where(visible: true).order('id DESC').paginate(page: current_page, per_page: 10)
   end
 
   def new
@@ -33,8 +34,8 @@ class PotsController < ApplicationController
     # obtener los valores que se aceptaran en la base de datos
     # solo los campos permitos en el formulario son los que estan como requeridos en pot_params
     @pot = Pot.create pot_params
-    if @pot.persisted?  # si el post se persiste de la orma correcta
-      redirect_to pot_path(@pot), notice:"Acabas de postear una nueva imagen." # se usa redirect_to, y para dar una alerta al usuario se usa el notice que se debe configurar en la vista application del layout
+    if @pot.persisted? # si el post se persiste de la orma correcta
+      redirect_to pot_path(@pot), notice: "Acabas de postear una nueva imagen." # se usa redirect_to, y para dar una alerta al usuario se usa el notice que se debe configurar en la vista application del layout
     else
       render :new, status: :unprocessable_entity # renderiza al path new
     end
@@ -43,15 +44,12 @@ class PotsController < ApplicationController
   def destroy
     @pot.destroy
     redirect_to pots_path, status: :see_other, notice: "Acabas de eliminar una foto super!"
-    end
-end
+  end
 
-def search
-  # para el tema de busqueda en el layout
-  @key = params[:key]
-  #@q = params[:q]
-  #@pots = Pot.where("name LIKE ?", "%#{@q}%")
-end
+  def search
+    @q = params[:q]
+    @pots = Pot.where("name LIKE ?", "%#{@q}%").where(visible: true)
+  end
 
   private
 
@@ -62,5 +60,6 @@ end
 
   def pot_params
     # en la petición se debe encontrar obligatoriamente el pot
-    params.require(:pot).permit(:name, :description, :visible)
+    params.require(:pot).permit(:name, :description, :visible, :image, category_ids: [])
   end
+end

@@ -33,6 +33,8 @@ gem "jbuilder"
 # gema para reemplazar los id por slug para no exponer infomación sencible
 gem 'friendly_id', '~> 5.4.0'
 
+# gema para la paginación
+gem 'will_paginate', '~> 3.3'
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 

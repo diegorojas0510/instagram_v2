@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   # get 'pots/', to: 'pots#index' # la petición sera resuleta por el controlador pots en su metodo index
   # get 'pots/new', to: 'pots#new', as: 'new_pots'
   # get 'pots/:id', to: 'pots#show', as: :pot
