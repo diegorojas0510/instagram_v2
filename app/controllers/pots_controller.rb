@@ -5,7 +5,8 @@ class PotsController < ApplicationController
   def index
     # listar mis pots mas recientes en la vista index
     current_page = params[:page] ||= 1
-    @pots = Pot.where(visible: true).order('id DESC').paginate(page: current_page, per_page: 10)
+    # @pots = Pot.where(visible: true).order('id DESC').paginate(page: current_page, per_page: 10)
+    @pots = Pot.populars.visible.paginate(page: current_page, per_page: 10)
   end
 
   def new
@@ -34,7 +35,7 @@ class PotsController < ApplicationController
     # obtener los valores que se aceptaran en la base de datos
     # solo los campos permitos en el formulario son los que estan como requeridos en pot_params
     @pot = Pot.create pot_params
-    if @pot.persisted? # si el post se persiste de la orma correcta
+    if @pot.persisted? # si el post se persiste de la forma correcta
       redirect_to pot_path(@pot), notice: "Acabas de postear una nueva imagen." # se usa redirect_to, y para dar una alerta al usuario se usa el notice que se debe configurar en la vista application del layout
     else
       render :new, status: :unprocessable_entity # renderiza al path new

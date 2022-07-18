@@ -1,13 +1,13 @@
 <%= form_with model: @pot do |form| %>
 
-    <% if @pot.errors.any? %>
+  <% if @pot.errors.any? %>
     <div class="mb-4">
       <% @pot.errors.each do |error| %>
-        <%= image_tag 'face-dizzy.svg', size: '20x20'%>
+        <%= image_tag 'face-dizzy.svg', size: '20x20' %>
         <%= error.full_message %>
       <% end %>
     </div>
-    <% end %>
+  <% end %>
 
   <div class="mb-4">
     <%= form.text_field :name, placeholder: "Nombre del pots", class: "appearance-none block w-full py-3 px-4  text-gray-700 bg-gry-50 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" %>
@@ -28,13 +28,13 @@
   </div>
 
   <!--Esto crea los check box para las categorias y las implementa en la vista al momento de cargar el nuevo pots-->
-<div>
-  <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |category| %>
-  <%= category.label class: "form-check-label text-lg inline-block text-gray-600" do %>
-    <%= category.check_box + category.text %>
+  <div>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |category| %>
+      <%= category.label class: "form-check-label text-lg inline-block text-gray-600" do %>
+        <%= category.check_box + category.text %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
 
   <div class="mb-4">

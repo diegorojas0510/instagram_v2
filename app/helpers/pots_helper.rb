@@ -19,4 +19,5 @@ module PotsHelper
     # retorna los 100 primeros caracteres en la card para que no se dañe y lo puedo usar en todas las vistas
     description.truncate(100)
   end
+
 end
