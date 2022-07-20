@@ -13,7 +13,11 @@
   </head>
 
   <body>
-      <%= render partial: 'partials/messages' %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= render partial: 'partials/messages' %>
       <%= render partial: 'partials/navbar' %>
       <div class="container px-4 mx-auto">
         <%= yield %>
