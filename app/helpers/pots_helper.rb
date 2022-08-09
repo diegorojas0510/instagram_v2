@@ -17,7 +17,7 @@ module PotsHelper
   # metodo que recibe como arguento la descripción de la tarjeta
   def simple_description(description)
     # retorna los 100 primeros caracteres en la card para que no se dañe y lo puedo usar en todas las vistas
-    description.truncate(100)
+    description.truncate(40)
   end
 
 end
