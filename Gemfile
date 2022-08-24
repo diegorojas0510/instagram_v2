@@ -38,8 +38,6 @@ gem 'will_paginate', '~> 3.3'
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
-# gem Devise
-gem 'devise'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -82,7 +80,9 @@ group :test do
   gem "webdrivers"
 end
 
-# gem 'devise'
+#gem devise
+# gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem 'devise', '~> 4.2'
 
 gem 'slim'
 
