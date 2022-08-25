@@ -249,7 +249,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  devise
+  devise (~> 4.2)
   friendly_id (~> 5.4.0)
   importmap-rails
   jbuilder
