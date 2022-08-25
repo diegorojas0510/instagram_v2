@@ -17,7 +17,7 @@
         <%= link_to 'Lista de Fotos', root_path, class: 'text-sm font-medium' %>
         <%= link_to 'Nuevo pots', new_pot_path, class: 'text-sm font-medium' %>
         <%= link_to 'Crear categorias', categories_path, class: 'text-sm font-medium' %>
-        <%= button_to 'Salir', destroy_user_session_path, method: :delete, class: 'text-sm font-medium' %>
+        <%#= button_to 'Salir', destroy_user_session_path, method: :delete, class: 'text-sm font-medium' %>
       </ul>
       <div class="hidden lg:flex">
         <%= form_tag search_pots_path, method: :get do %>

@@ -16,14 +16,11 @@
 
 
     <%= render partial: 'partials/messages' %>
-    <%if signed_in? %>
-    <%= render partial: 'partials/messages' %>
     <%= render partial: 'partials/navbar' %>
-  <%else %>
+
       <div class="container px-4 mx-auto">
         <%= yield %>
       </div>
-    <%end %>
   </body>
 
   <script>
