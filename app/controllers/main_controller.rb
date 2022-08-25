@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+  before_action :authenticate_user!
   # podemos un layout para todas las vistas por defecto
   # layout 'custome'
   def welcome
